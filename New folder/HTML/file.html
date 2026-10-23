@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Bharat – Discover the Soul of India</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&family=Rozha+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="wrap"><nav>
+ <a class="logo" href="#home">Explore Bharat<small>भारत</small></a>
+ <button class="burger" id="burger" aria-label="Open menu">Menu</button>
+ <ul id="menu">
+  <li><a href="#home" data-p="home">Home</a></li>
+  <li><a href="#destinations" data-p="destinations">Destinations</a></li>
+  <li><a href="#culture" data-p="culture">Culture</a></li>
+  <li><a href="#gallery" data-p="gallery">Gallery</a></li>
+  <li><a href="#about" data-p="about">About</a></li>
+  <li><a href="#trip" data-p="trip">My trip<span id="tc"></span></a></li>
+  <li><a href="#contact" data-p="contact">Contact</a></li>
+  <li><button class="tg" id="theme" type="button" aria-label="Switch colour theme">Dark</button></li>
+ </ul>
+</nav></div>
+</header>
+
+<!-- HOME -->
+<main>
+<div class="page" id="home">
+ <div class="hero"><div class="deva" aria-hidden="true">भारत</div>
+  <div class="wrap">
+   <div>
+    <h1>Every state is a different country to discover.</h1>
+    <p>From the snow passes of Ladakh to the backwaters of Kerala, find where to go, what to eat and which festival to catch in India.</p>
+    <form class="search" id="heroSearch" role="search">
+     <input id="heroInput" type="text" placeholder="Search a state, e.g. Rajasthan" aria-label="Search destinations">
+     <button class="btn" type="submit">Search</button>
+    </form>
+   </div>
+   <div class="slider" id="slider" aria-label="Featured places"><div class="dots" id="dots"></div></div>
+  </div>
+ </div>
+ <div class="band"></div>
+ <div class="wrap facts">
+  <div><b>28</b>States</div><div><b>8</b>Union Territories</div><div><b>40+</b>UNESCO World Heritage Sites</div><div><b>22</b>Scheduled languages</div>
+ </div>
+ <section class="s"><div class="wrap">
+  <div class="head"><div><h2>Where to start</h2><p>Six places that show how different India can look.</p></div><a class="btn alt" href="#destinations">See all destinations</a></div>
+  <div class="grid" id="homeGrid"></div>
+ </div></section>
+ <section class="s" style="background:var(--paper)"><div class="wrap two">
+  <div><h2 style="font-size:40px">Plan in three steps</h2></div>
+  <ol class="steps">
+   <li><b>Pick a region.</b> Filter destinations by North, South, East, West or the Himalaya.</li>
+   <li><b>Check the best season.</b> Each state lists when to go and what to see.</li>
+   <li><b>Add a festival or a meal.</b> Culture pages show what is on and what to taste.</li>
+  </ol>
+ </div></section>
+</div>
+
+<!-- DESTINATIONS -->
+<div class="page" id="destinations">
+ <div class="pagehead"><div class="wrap"><h1>Destinations</h1><p>Search by name or filter by region. Select a card for details.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap">
+  <div class="search" style="border:1.5px solid var(--accent);margin-bottom:20px"><input id="dInput" type="text" placeholder="Search by state or place" aria-label="Search destinations"></div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="destGrid"></div>
+ </div></section>
+</div>
+
+<!-- CULTURE -->
+<div class="page" id="culture">
+ <div class="pagehead"><div class="wrap"><h1>Culture &amp; Heritage</h1><p>Festivals, food and monuments that define each region.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap">
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="list" id="cultureList"></div>
+ </div></section>
+</div>
+
+<!-- GALLERY -->
+<div class="page" id="gallery">
+ <div class="pagehead"><div class="wrap"><h1>Gallery</h1><p>Select a photo to view it larger.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap"><div class="gal" id="galGrid"></div></div></section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="about">
+ <div class="pagehead"><div class="wrap"><h1>About this project</h1><p>A front-end project built with HTML, CSS and JavaScript only.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap two">
+  <div>
+   <h2 style="font-size:36px;margin-bottom:16px">Why Explore Bharat</h2>
+   <p>India is large enough that most travellers see only a small part of it. Explore Bharat is a digital travel guide that puts destinations, festivals and food for every region in one place.</p>
+   <p>The aim is to inspire domestic and international tourism through a clear, responsive interface that works on a phone as well as a desktop.</p>
+  </div>
+  <div>
+   <h2 style="font-size:36px;margin-bottom:16px">What it uses</h2>
+   <ol class="steps" style="counter-reset:s">
+    <li><b>HTML5</b> for page structure and content.</li>
+    <li><b>CSS3</b> for Flexbox and Grid layouts, media queries and hover effects.</li>
+    <li><b>JavaScript</b> for the slider, live search, filtering, modal and form validation.</li>
+   </ol>
+  </div>
+ </div></section>
+</div>
+
+<!-- TRIP -->
+<div class="page" id="trip">
+ <div class="pagehead"><div class="wrap"><h1>My trip</h1><p>Destinations you saved. The list stays in this browser.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap" style="max-width:760px">
+  <div id="tripList"></div>
+  <div class="tools" id="tripTools"></div>
+ </div></section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="contact">
+ <div class="pagehead"><div class="wrap"><h1>Contact &amp; Feedback</h1><p>Suggest a place, report a mistake or share feedback.</p></div></div>
+ <div class="band"></div>
+ <section class="s"><div class="wrap" style="max-width:640px">
+  <form id="cform" novalidate>
+   <label for="cn">Full name</label><input id="cn" type="text"><div class="err" id="en"></div>
+   <label for="ce">Email</label><input id="ce" type="email"><div class="err" id="ee"></div>
+   <label for="ct">Topic</label>
+   <select id="ct"><option>Feedback</option><option>Suggest a destination</option><option>Report an error</option></select>
+   <label for="cm">Message</label><textarea id="cm" rows="5"></textarea><div class="err" id="em"></div>
+   <button class="btn" type="submit" style="margin-top:8px">Send message</button>
+   <div class="ok" id="ok" role="status"></div>
+  </form>
+ </div></section>
+</div>
+</main>
+
+<footer><div class="wrap"><b>Explore Bharat</b><p>Discover the soul of India. A college web development project.</p></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box" id="box"></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>

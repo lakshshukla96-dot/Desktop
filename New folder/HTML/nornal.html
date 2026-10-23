@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Bharat - Atulya Bharat</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Samarkan&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#FF9933;
+  --white:#ffffff;
+  --green:#138808;
+  --dark:#1a1a2e;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#fffaf2;overflow-x:hidden}
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 6%;background:white;box-shadow:0 2px 20px rgba(0,0,0,0.07);
+  position:sticky;top:0;z-index:100;
+}
+.logo{font-weight:700;font-size:24px;letter-spacing:1px}
+.logo span:first-child{color:var(--saffron)} .logo span:last-child{color:var(--green)}
+nav ul{display:flex;list-style:none;gap:30px}
+nav ul li{cursor:pointer;font-weight:600;color:var(--dark)}
+nav ul li:hover{color:var(--saffron)}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:1.1fr 0.9fr;
+  padding:60px 6%;align-items:center;
+  background:linear-gradient(to bottom, #fff 0%, #fffaf2 100%);
+}
+.hero h1{font-size:58px;line-height:1.1;color:var(--dark)}
+.hero h1 b{font-family: 'Samarkan', cursive; font-weight:400; color:var(--saffron); font-size:70px}
+.hero p{margin:20px 0 30px;color:#555;font-size:16px;max-width:500px}
+.search-box{
+  display:flex;background:white;border-radius:50px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);padding:6px;max-width:450px
+}
+.search-box input{flex:1;border:none;outline:none;padding:12px 20px;border-radius:50px}
+.search-box button{background:var(--dark);color:white;border:none;padding:12px 28px;border-radius:50px;cursor:pointer}
+.hero-img{
+  position:relative;height:420px;
+  background: radial-gradient(circle, #ffe8c8 0%, transparent 70%);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-card{
+  width:320px;height:380px;border-radius:20px;
+  background: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da') center/cover;
+  transform:rotate(3deg);box-shadow:20px 20px 0 var(--saffron);
+  border:8px solid white;
+}
+.strip{
+  display:flex;justify-content:space-around;
+  background:var(--dark);color:white;padding:15px;text-align:center;
+}
+.strip h3{color:var(--saffron)}
+
+/* STATES */
+.section{padding:60px 6%}
+.section-title{font-size:32px;margin-bottom:10px}
+.section-title:after{content:'';display:block;width:60px;height:4px;background:var(--saffron);margin-top:8px;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:25px;margin-top:30px}
+.card{
+  background:white;border-radius:16px;overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);transition:0.3s;cursor:pointer;
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.12)}
+.card .img{height:180px;background-size:cover;background-position:center}
+.card .info{padding:15px}
+.card .info h4{display:flex;justify-content:space-between}
+.card .info h4 span{font-size:12px;background:#fff0d9;color:var(--saffron);padding:4px 10px;border-radius:20px}
+.card .info p{font-size:13px;color:#777;margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span>Explore</span> <span>Bharat</span></div>
+  <ul>
+    <li>Home</li>
+    <li>States</li>
+    <li>Culture</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>Discover The <br><b>Atulya Bharat</b></h1>
+    <p>From Kashmir to Kanyakumari, explore 28 states, 8 UTs, 100+ festivals and timeless heritage in one platform.</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search state, e.g. Rajasthan">
+      <button onclick="searchState()">Explore</button>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="hero-card"></div>
+  </div>
+</div>
+
+<div class="strip">
+  <div><h3>28+</h3><p>States</p></div>
+  <div><h3>1600+</h3><p>Festivals</p></div>
+  <div><h3>40+</h3><p>UNESCO Sites</p></div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Explore by States</h2>
+  <div class="grid" id="stateGrid">
+    <!-- Cards will be injected by JS -->
+  </div>
+</div>
+
+<script>
+const states = [
+  {name:"Rajasthan", tag:"Royal", img:"https://images.unsplash.com/photo-1477587458883-47145ed94245", desc:"Land of Kings, Forts & Thar Desert"},
+  {name:"Kerala", tag:"God's Own", img:"https://images.unsplash.com/photo-1602216056096-3b40cc0c9944", desc:"Backwaters, Ayurveda & Greenery"},
+  {name:"Punjab", tag:"Vibrant", img:"https://images.unsplash.com/photo-1583083527882-4bee9aba2edd", desc:"Golden Temple, Bhangra & Fields"},
+  {name:"Goa", tag:"Beach", img:"https://images.unsplash.com/photo-1512343879784-a960bf40e7f2", desc:"Beaches, Churches & Nightlife"},
+  {name:"Himachal", tag:"Himalaya", img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4", desc:"Snowy Peaks & Adventure"},
+  {name:"Tamil Nadu", tag:"Temple", img:"https://images.unsplash.com/photo-1584598171343-8d460f8aab2f", desc:"Dravidian Temples & Culture"},
+];
+
+const grid = document.getElementById('stateGrid');
+function render(list){
+  grid.innerHTML = "";
+  list.forEach(s=>{
+    grid.innerHTML += `
+    <div class="card">
+      <div class="img" style="background-image:url('${s.img}')"></div>
+      <div class="info">
+        <h4>${s.name} <span>${s.tag}</span></h4>
+        <p>${s.desc}</p>
+      </div>
+    </div>`;
+  });
+}
+render(states);
+
+function searchState(){
+  let q = document.getElementById('searchInput').value.toLowerCase();
+  let filtered = states.filter(s=> s.name.toLowerCase().includes(q));
+  if(filtered.length==0) alert("State not found in this demo. Add it in JS array.");
+  render(filtered);
+}
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  let filtered = states.filter(s=> s.name.toLowerCase().includes(e.target.value.toLowerCase()));
+  render(filtered);
+});
+</script>
+</body>
+</html>
